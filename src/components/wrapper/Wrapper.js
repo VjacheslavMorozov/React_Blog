@@ -1,7 +1,7 @@
 import React from 'react';
-import TitleContainer from "../../containers/titleContainer/titleContainer"
-import ArticleList from "../../containers/articleList/articleList"
-import DataList from "../../dataList"
+import TitleContainer from "../../containers/titleContainer/TitleContainer";
+import ArticleList from "../../containers/articleList/ArticleList";
+import DataList from "../../dataList";
 
 const Wrapper = () => {
     const data = DataList;

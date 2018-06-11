@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './article.scss';
-import CommentsList from "../../containers/commentsList/commentsList";
+import CommentsList from "../../containers/commentsList/СommentsList";
 
 class Article extends Component {
     constructor(props) {
@@ -20,10 +20,10 @@ class Article extends Component {
         const currentTime = Date({date});
 
         return (
-            <div>
+            <div className={styles.articleContainer}>
                 <div className={styles.titleContainer}>
                     <div>{title}</div>
-                    <button
+                    <button className={"toggle-button"}
                         onClick={this.toggleVisibleArticle}>
                         {this.state.isOpen ? "hide article" : "show article"}
                     </button>
@@ -31,7 +31,7 @@ class Article extends Component {
                 {
                     this.state.isOpen
                         ?
-                        <div className={styles.listOpen + " default"}>
+                        <div className={styles.commentsContainer + " default"}>
                             <div>
                                 {text}
                             </div>
@@ -44,7 +44,6 @@ class Article extends Component {
                         </div>
                         : null
                 }
-
             </div>
         );
     }

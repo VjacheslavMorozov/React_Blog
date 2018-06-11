@@ -80,7 +80,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 loader: "babel-loader",
 
             },

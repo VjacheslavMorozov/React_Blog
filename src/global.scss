@@ -1,5 +1,10 @@
 :global {
-  .default {
+  .toggle-button {
+    border: none;
+    background: transparent;
 
+    &:active {
+      outline: none;
+    }
   }
 }

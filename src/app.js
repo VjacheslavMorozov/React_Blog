@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import Wrapper from "./components/wrapper/wrapper";
+import Wrapper from "./components/wrapper/Wrapper";
+
+
+import "normalize-scss"
 import "./global.scss";
 
 

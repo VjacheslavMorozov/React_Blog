@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from "../../components/title/title"
+import Title from "../../components/title/Title"
 
 const TitileContainer = () => {
     return (
