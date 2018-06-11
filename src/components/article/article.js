@@ -29,7 +29,9 @@ class Article extends Component {
                     </button>
                 </div>
                 {
-                        <div classList={styles.listOpen , this.state.isOpen ? "" : sty}>
+                    this.state.isOpen
+                        ?
+                        <div className={styles.listOpen + " default"}>
                             <div>
                                 {text}
                             </div>
@@ -40,6 +42,7 @@ class Article extends Component {
                                 <CommentsList listOfComments={comments}/>
                             </div>
                         </div>
+                        : null
                 }
 
             </div>
