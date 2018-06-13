@@ -102,7 +102,7 @@ module.exports = {
                 use: [
                     // fallback to style-loader in development
                     'style-loader',
-                    "css-loader?modules&localIdentName=[name]--[local]",
+                    "css-loader?modules&localIdentName=[name]__[local]",
                     "sass-loader"
                 ]
             }
