@@ -2,57 +2,61 @@ import React, {Component} from 'react';
 import styles from './article.scss';
 import shave from 'shave/dist/shave';
 import CommentsList from "../../containers/commentsList/СommentsList";
+import PropTypes from 'prop-types';
+import Wrapper from "../wrapper/Wrapper";
 
 class Article extends Component {
     constructor(props) {
         super(props);
+        this.onScroll = this.onScroll;
         this.textContainer = React.createRef();
     }
 
+
+    toggleTrancateText = (container) => {
+        let hasShave = container.querySelector('.js-shave');
+        if (hasShave !== null) {
+            container.textContent = this.defaultText;
+        } else {
+            this.setVisibilityArticle(2, container, this.defaultText);
+        }
+
+    };
     state = {
         isOpen: false
     };
 
     toggleVisibleArticle = () => {
         this.setState({isOpen: !this.state.isOpen});
+        this.toggleTrancateText(this.textContainer.current)
     };
 
-    setVisibilityArticle = (countLines) => {
-        const currentFontSize = parseInt(getComputedStyle(this.textContainer.current).fontSize);
+    setVisibilityArticle = (countLines, container, defaultTextContent) => {
+        const currentFontSize = parseInt(getComputedStyle(container).fontSize);
         const shortHeightOfContainer = countLines * (currentFontSize + 2);
-        shave(this.textContainer.current, shortHeightOfContainer);
+        container.textContent = defaultTextContent;
+
+        shave(container, shortHeightOfContainer, defaultTextContent);
     };
+
 
     componentDidMount() {
-        this.setVisibilityArticle(2);
-        window.addEventListener("resize", function () {
-            console.log('resize')
+        const textWrapper = this.textContainer.current;
+        this.defaultText = textWrapper.textContent;
 
+        this.setVisibilityArticle(2, textWrapper, this.defaultText);
+        let timer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                this.setVisibilityArticle(2, textWrapper, this.defaultText);
+            }, 300);
         });
-
-
-        var w = document.querySelector("#width"),
-            h = document.querySelector("#height"),
-            c = document.querySelector("#calls"),
-            timeout = false, // holder for timeout id
-            delay = 250, // delay after event is "complete" to run callback
-            calls = 0;
-
-// window.resize callback function
-
-
-// window.resize event listener
-        window.addEventListener('resize', function() {
-            // clear the timeout
-            clearTimeout(timeout);
-            // start timing for event "completion"
-            timeout = setTimeout(this.setVisibilityArticle(2), delay);
-        });
-
-
-
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll, false);
+    }
 
     render() {
         const {title, date, text, comments} = this.props.data;
@@ -81,12 +85,25 @@ class Article extends Component {
                         <CommentsList listOfComments={comments}/>
                     </div>
                 </div>
-
-
             </div>
         );
     }
 }
+
+Article.propTypes = {
+    hasShave: PropTypes.bool,
+    currentFontSize: PropTypes.number,
+    shortHeightOfContainer: PropTypes.number,
+    title: PropTypes.string,
+    date: PropTypes.instanceOf(Date),
+    currentTime: PropTypes.instanceOf(Date),
+    text: PropTypes.string,
+    comments: PropTypes.shape({
+        commentId: PropTypes.number,
+        commentText: PropTypes.string
+    }),
+
+};
 
 export default Article;
 

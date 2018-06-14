@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Comment from "../../components/comment/Сomment";
 import styles from "./commentList.scss";
+import PropTypes from 'prop-types';
 
 class CommentsList extends Component {
     constructor(props) {
@@ -44,5 +45,17 @@ class CommentsList extends Component {
         );
     }
 }
+
+
+CommentsList.propTypes = {
+    isHasComments: PropTypes.bool,
+    isCommentsOpen:  PropTypes.bool,
+    listOfComments: PropTypes.arrayOf(
+        PropTypes.shape({
+            commentId: PropTypes.number,
+            commentText: PropTypes.string
+        })
+    )
+};
 
 export default CommentsList;
