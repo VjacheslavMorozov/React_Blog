@@ -3,15 +3,24 @@ import styles from './article.scss';
 import shave from 'shave/dist/shave';
 import CommentsList from "../../containers/commentsList/СommentsList";
 import PropTypes from 'prop-types';
-import Wrapper from "../wrapper/Wrapper";
+import _ from "lodash";
+import Modal from 'react-modal';
+import RemovingArticleComponent from "../removingArticleComponent/RemovingArticleComponent";
 
 class Article extends Component {
     constructor(props) {
         super(props);
-        this.onScroll = this.onScroll;
         this.textContainer = React.createRef();
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.acceptingDelete = this.acceptingDelete.bind(this);
+        this.cancelingDelete = this.cancelingDelete.bind(this);
     }
 
+    state = {
+        isOpen: false,
+        modalIsOpen: false
+    };
 
     toggleTrancateText = (container) => {
         let hasShave = container.querySelector('.js-shave');
@@ -20,37 +29,45 @@ class Article extends Component {
         } else {
             this.setVisibilityArticle(2, container, this.defaultText);
         }
+    };
 
-    };
-    state = {
-        isOpen: false
-    };
+    closeModal() {
+        this.setState({modalIsOpen: false});
+    }
+
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+
+    acceptingDelete() {
+        console.log("accept");
+        this.closeModal();
+    }
+    cancelingDelete() {
+        console.log("cancel");
+        this.closeModal();
+    }
 
     toggleVisibleArticle = () => {
         this.setState({isOpen: !this.state.isOpen});
-        this.toggleTrancateText(this.textContainer.current)
+        this.toggleTrancateText(this.textContainer.current);
     };
 
     setVisibilityArticle = (countLines, container, defaultTextContent) => {
         const currentFontSize = parseInt(getComputedStyle(container).fontSize);
         const shortHeightOfContainer = countLines * (currentFontSize + 2);
-        container.textContent = defaultTextContent;
+        container.textContent = this.props.data.text;
 
         shave(container, shortHeightOfContainer, defaultTextContent);
     };
 
-
     componentDidMount() {
         const textWrapper = this.textContainer.current;
-        this.defaultText = textWrapper.textContent;
+        const { text } = this.props.data;
 
-        this.setVisibilityArticle(2, textWrapper, this.defaultText);
-        let timer = null;
+        this.setVisibilityArticle(2, textWrapper, text);
         window.addEventListener('resize', () => {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                this.setVisibilityArticle(2, textWrapper, this.defaultText);
-            }, 300);
+            _.debounce(this.setVisibilityArticle(2, textWrapper, text), 300);
         });
     }
 
@@ -59,18 +76,41 @@ class Article extends Component {
     }
 
     render() {
-        const {title, date, text, comments} = this.props.data;
+        const {title, date, text, comments, id} = this.props.data;
         const {isOpen} = this.state;
         const currentTime = Date({date});
+        const ArticleContext = React.createContext();
 
         return (
             <div className={styles.articleContainer}>
+                <button onClick={this.openModal}>open</button>
+                <Modal
+                    isOpen={this.state.modalIsOpen}>
+                    <button onClick={this.closeModal}>close</button>
+                    <div>
+                        <div>Are you shure?</div>
+
+                        <button onClick={this.acceptingDelete}>yes</button>
+
+                        <button onClick={this.cancelingDelete}>no</button>
+                    </div>
+
+                </Modal>
                 <div className={styles.titleContainer} ref={this.textContainer}>
-                    <div>{title}</div>
-                    <button className={"toggle-button"}
-                            onClick={this.toggleVisibleArticle}>
-                        {isOpen ? "hide article" : "show article"}
-                    </button>
+                    <div className="title-container">
+                        <div>{title}</div>
+                    </div>
+
+                    <div>
+                        <button className={"toggle-button"}
+                                onClick={this.toggleVisibleArticle}>
+                            {isOpen ? "hide article" : "show article"}
+                        </button>
+
+                        <RemovingArticleComponent isShowButton={true} id={id}/>
+
+                    </div>
+
                 </div>
 
                 <div className={styles.commentsContainer}>

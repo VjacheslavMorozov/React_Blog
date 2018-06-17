@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import TitleContainer from "../../containers/titleContainer/TitleContainer";
 import ArticleList from "../../containers/articleList/ArticleList";
-import DataList from "../../dataList";
 import PropTypes from 'prop-types';
 
 const Wrapper = () => {
-    const data = DataList;
     return (
         <div>
             <TitleContainer/>
-            <ArticleList articleArray={data}/>
+            <ArticleList/>
         </div>
     );
 };
+
+
 
 Wrapper.propTypes = {
     articleArray: PropTypes.shape({

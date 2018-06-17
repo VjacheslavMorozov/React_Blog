@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import Article from "../../components/article/Article";
 import PropTypes from 'prop-types';
 import DataList from "../../dataList";
-import ArticleProvider from "../../components/articleProvider/ArticleProvider"
+import ArticleContext from "../../ArticleContext";
+import _ from "lodash"
 
 
-class ArticleList extends Component {
+class ArticleList extends Component{
     constructor() {
         super();
         this.state = {
@@ -14,16 +15,22 @@ class ArticleList extends Component {
     }
 
     render() {
+        const {articleList} = this.state;
+        const {id} = this.props;
         return (
-            <ArticleProvider>
-                {this.state.articleList.map((article) =>
-                    <Article data={article} key={article.id}/>
-                )}
-            </ArticleProvider>
+            <ArticleContext.Provider value = {{
+                listOfArticles: this.state.articleList,
+                updateArticleList: e => {
+                    this.setState = {
+                        articleList: articleList
+                    }
+                }
+            }}>
+                {this.props.children}
+            </ArticleContext.Provider>
         )
     }
 }
-
 ArticleList.propTypes = {
     articleArray: PropTypes.arrayOf(
         PropTypes.shape({
