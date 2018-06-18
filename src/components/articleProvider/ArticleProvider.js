@@ -15,15 +15,16 @@ class ArticleList extends Component{
     }
 
     render() {
-        const {articleList} = this.state;
-        const {id} = this.props;
+        const {articleList, id} = this.state;
+        console.log(articleList)
         return (
             <ArticleContext.Provider value = {{
                 listOfArticles: this.state.articleList,
-                updateArticleList: e => {
-                    this.setState = {
-                        articleList: articleList
-                    }
+                updateArticleList: id =>  {
+                    console.log(id, articleList.filter(article => article.id !== id))
+                    this.setState({
+                        articleList: articleList.filter(article => article.id !== id )
+                    })
                 }
             }}>
                 {this.props.children}

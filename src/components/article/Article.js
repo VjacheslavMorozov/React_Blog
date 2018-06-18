@@ -5,6 +5,7 @@ import CommentsList from "../../containers/commentsList/СommentsList";
 import PropTypes from 'prop-types';
 import _ from "lodash";
 import Modal from 'react-modal';
+
 import RemovingArticleComponent from "../removingArticleComponent/RemovingArticleComponent";
 
 class Article extends Component {
@@ -79,7 +80,7 @@ class Article extends Component {
         const {title, date, text, comments, id} = this.props.data;
         const {isOpen} = this.state;
         const currentTime = Date({date});
-        const ArticleContext = React.createContext();
+
 
         return (
             <div className={styles.articleContainer}>

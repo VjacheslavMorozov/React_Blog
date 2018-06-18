@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
 
-const ArticleContext = createContext();
+const ArticleContext = createContext("article");
 
 export default ArticleContext;
