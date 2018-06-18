@@ -18,7 +18,7 @@ class ArticleList extends Component {
 
     enableRemovingMode(event) {
         this.setState({
-            isShowRemovingButtons: event.target.value == 1
+            isShowRemovingButtons: event.target.value === 1
         });
     }
 
