@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import _ from "lodash";
 import Modal from 'react-modal';
 
+
 import RemovingArticleComponent from "../removingArticleComponent/RemovingArticleComponent";
 
 class Article extends Component {
@@ -20,7 +21,7 @@ class Article extends Component {
 
     state = {
         isOpen: false,
-        modalIsOpen: false
+        modalIsOpen: false,
     };
 
     toggleTrancateText = (container) => {
@@ -44,6 +45,7 @@ class Article extends Component {
         console.log("accept");
         this.closeModal();
     }
+
     cancelingDelete() {
         console.log("cancel");
         this.closeModal();
@@ -64,7 +66,7 @@ class Article extends Component {
 
     componentDidMount() {
         const textWrapper = this.textContainer.current;
-        const { text } = this.props.data;
+        const {text} = this.props.data;
 
         this.setVisibilityArticle(2, textWrapper, text);
         window.addEventListener('resize', () => {
@@ -80,19 +82,17 @@ class Article extends Component {
         const {title, date, text, comments, id} = this.props.data;
         const {isOpen} = this.state;
         const currentTime = Date({date});
-
+        console.log(this.props.isHideRemoveButton)
 
         return (
             <div className={styles.articleContainer}>
-                <button onClick={this.openModal}>open</button>
+
                 <Modal
                     isOpen={this.state.modalIsOpen}>
                     <button onClick={this.closeModal}>close</button>
                     <div>
                         <div>Are you shure?</div>
-
-                        <button onClick={this.acceptingDelete}>yes</button>
-
+                        <RemovingArticleComponent id={id}/>
                         <button onClick={this.cancelingDelete}>no</button>
                     </div>
 
@@ -101,19 +101,18 @@ class Article extends Component {
                     <div className="title-container">
                         <div>{title}</div>
                     </div>
-
                     <div>
                         <button className={"toggle-button"}
                                 onClick={this.toggleVisibleArticle}>
                             {isOpen ? "hide article" : "show article"}
                         </button>
 
-                        <RemovingArticleComponent isShowButton={true} id={id}/>
-
+                        <button
+                            className={this.props.isHideRemoveButton ? styles.hidden : ""} onClick={this.openModal}>
+                            remove
+                        </button>
                     </div>
-
                 </div>
-
                 <div className={styles.commentsContainer}>
                     <div className={styles.textAnimate}
                          ref={this.textContainer}>

@@ -3,34 +3,47 @@ import Article from "../../components/article/Article";
 import PropTypes from 'prop-types';
 import DataList from "../../dataList";
 import ArticleContext from "../../ArticleContext"
-import ArticleProvider from "../../components/articleProvider/ArticleProvider"
+import {RadioGroup, RadioButton} from 'react-radio-buttons';
 
 
 class ArticleList extends Component {
     constructor() {
         super();
         this.state = {
-            articleList: DataList
-        }
+            articleList: DataList,
+            isShowRemovingButtons: true
+        };
+    }
+
+
+    enableRemovingMode(event) {
+        this.setState({
+            isShowRemovingButtons: event.target.value
+        });
     }
 
     render() {
-        const {articleList} = this.state;
+        const {articleList, isShowRemovingButtons} = this.state;
         return (
             <div>
-            <ArticleContext.Provider value = {{
-                listOfArticles: this.state.articleList,
-                updateArticleList: id =>  {
-                    console.log(id, articleList.filter(article => article.id !== id))
-                    this.setState({
-                        articleList: articleList.filter(article => article.id !== id )
-                    })
-                }
-            }}>
-                {this.state.articleList.map((article) =>
-                    <Article data={article} key={article.id} id={article.id}/>
-                )}
-            </ArticleContext.Provider>
+                <div >
+                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value={false} name="check"/> Enable Removing mode
+                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value={true} name="check"/> Disable Removing mode
+                </div>
+
+                <ArticleContext.Provider value={{
+                    listOfArticles: this.state.articleList,
+                    updateArticleList: id => {
+                        this.setState({
+                            articleList: articleList.filter(article => article.id !== id)
+                        })
+                    }
+                }}>
+                    {this.state.articleList.map((article) =>
+                        <Article data={article} key={article.id} isHideRemoveButton={isShowRemovingButtons}
+                                 id={article.id}/>
+                    )}
+                </ArticleContext.Provider>
             </div>
         )
     }
