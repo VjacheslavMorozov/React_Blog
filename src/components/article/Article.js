@@ -80,6 +80,7 @@ class Article extends Component {
 
     render() {
         const {title, date, text, comments, id} = this.props.data;
+        const {isHideRemoveButton}= this.props;
         const {isOpen} = this.state;
         const currentTime = Date({date});
         console.log(this.props.isHideRemoveButton)
@@ -108,7 +109,7 @@ class Article extends Component {
                         </button>
 
                         <button
-                            className={this.props.isHideRemoveButton ? styles.hidden : ""} onClick={this.openModal}>
+                            className={isHideRemoveButton ? "" :  styles.hidden} onClick={this.openModal}>
                             remove
                         </button>
                     </div>

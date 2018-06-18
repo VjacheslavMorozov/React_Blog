@@ -18,7 +18,7 @@ class ArticleList extends Component {
 
     enableRemovingMode(event) {
         this.setState({
-            isShowRemovingButtons: event.target.value
+            isShowRemovingButtons: event.target.value == 1
         });
     }
 
@@ -27,8 +27,8 @@ class ArticleList extends Component {
         return (
             <div>
                 <div >
-                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value={false} name="check"/> Enable Removing mode
-                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value={true} name="check"/> Disable Removing mode
+                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value="1" name="check"/> Enable Removing mode
+                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value="0" name="check"/> Disable Removing mode
                 </div>
 
                 <ArticleContext.Provider value={{
