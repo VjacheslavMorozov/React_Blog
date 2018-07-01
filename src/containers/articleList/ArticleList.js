@@ -2,9 +2,7 @@ import React, {Component, createContext} from 'react';
 import Article from "../../components/article/Article";
 import PropTypes from 'prop-types';
 import DataList from "../../dataList";
-import ArticleContext from "../../ArticleContext"
-import {RadioGroup, RadioButton} from 'react-radio-buttons';
-
+import ArticleContext from "../../ArticleContext";
 
 class ArticleList extends Component {
     constructor() {
@@ -14,7 +12,6 @@ class ArticleList extends Component {
             isShowRemovingButtons: true
         };
     }
-
 
     enableRemovingMode(event) {
         this.setState({
@@ -64,7 +61,6 @@ ArticleList.propTypes = {
             )
         })
     )
-
 };
 
 
