@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/components/article/Article.js" line="115" />
+    <bookmark url="file://$PROJECT_DIR$/src/components/article/Article.js" line="114" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd4b392-8de1-42ba-9e3f-d9b713f66cdd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArticleContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArticleContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/article/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/article/Article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/articleProvider/ArticleProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/articleProvider/ArticleProvider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/removingArticleComponent/RemovingArticleComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/removingArticleComponent/RemovingArticleComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/articleList/ArticleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/articleList/ArticleList.js" afterDir="false" />
-    </list>
+    <list default="true" id="8bd4b392-8de1-42ba-9e3f-d9b713f66cdd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -39,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/removingArticleComponent/RemovingArticleComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="19" column="28" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="28" />
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -92,8 +83,8 @@
       <file leaf-file-name="ArticleList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/articleList/ArticleList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+            <state relative-caret-position="108">
+              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -384,6 +375,7 @@
       <workItem from="1529235396523" duration="26887000" />
       <workItem from="1529331273084" duration="611000" />
       <workItem from="1529331906551" duration="475000" />
+      <workItem from="1530526972525" duration="243000" />
     </task>
     <task id="LOCAL-00001" summary="commit clobal styles">
       <created>1528698710466</created>
@@ -403,47 +395,58 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84666000" />
+    <option name="totallyTimeSpent" value="84829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3832" y="-148" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17334037" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5957207" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50052685" side_tool="true" visible="true" weight="0.59477127" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49947312" visible="true" weight="0.59477127" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32995495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23202614" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.23202614" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17334037" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5957207" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32995495" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23202614" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17370325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.5957207" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32995495" />
-      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2331081" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.5957207" />
-      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -809,7 +812,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/removingArticleComponent/RemovingArticleComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="28" />
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -818,8 +821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/articleList/ArticleList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        <state relative-caret-position="108">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
