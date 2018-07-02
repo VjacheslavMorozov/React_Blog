@@ -8,11 +8,8 @@ class RemovingArticleComponent extends Component {
         // this.onClick = this.onClick.bind();
     }
     render() {
-        const {id, isShowButton} = this.props;
-
-        console.log(id)
+        const {id} = this.props;
         return (
-            isShowButton &&
             <ArticleContext.Consumer>
                 {context => console.log(context) || (
                     <button  onClick={context.updateArticleList.bind(null, id)}>remove</button>
@@ -21,6 +18,5 @@ class RemovingArticleComponent extends Component {
         );
     }
 }
-
 
 export default RemovingArticleComponent;

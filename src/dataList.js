@@ -1,4 +1,4 @@
-const DataList = [
+const articles = [
     {
         id: 1,
         title: "One Story Blog",
@@ -38,4 +38,4 @@ const DataList = [
     }
 ];
 
-export default DataList;
+export default articles;
