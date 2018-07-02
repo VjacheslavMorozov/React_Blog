@@ -1,49 +1,39 @@
-import React, {Component, createContext} from 'react';
-import Article from "../../components/article/Article";
+import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import DataList from "../../dataList";
-import ArticleContext from "../../ArticleContext";
+import Article from "../../components/article/article";
 
-class ArticleList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            articleList: DataList,
-            isShowRemovingButtons: true
-        };
-    }
 
-    enableRemovingMode(event) {
-        this.setState({
-            isShowRemovingButtons: event.target.value === 1
-        });
-    }
+import {toggleInputChange} from '../../reducers/toggleRemoving';
 
-    render() {
-        const {articleList, isShowRemovingButtons} = this.state;
-        return (
+
+function ArticleList(props) {
+    const {articles = [], toggleRemoving} = props;
+    console.log(props)
+
+    return (
+        <div>
             <div>
-                <div >
-                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value="1" name="check"/> Enable Removing mode
-                    <input onChange={this.enableRemovingMode.bind(this)} type="radio" value="0" name="check"/> Disable Removing mode
-                </div>
-
-                <ArticleContext.Provider value={{
-                    listOfArticles: this.state.articleList,
-                    updateArticleList: id => {
-                        this.setState({
-                            articleList: articleList.filter(article => article.id !== id)
-                        })
-                    }
-                }}>
-                    {this.state.articleList.map((article) =>
-                        <Article data={article} key={article.id} isHideRemoveButton={isShowRemovingButtons}
-                                 id={article.id}/>
-                    )}
-                </ArticleContext.Provider>
+                <input onClick={props.toggleInputChange}
+                       type="radio"
+                       value="1"
+                       name="check"
+                /> Enable
+                Removing mode
+                <input onClick={props.toggleInputChange}
+                       type="radio"
+                       value="0"
+                       name="check" defaultChecked={true}/>
+                Disable Removing mode
             </div>
-        )
-    }
+            <div>
+                {articles.map((article) =>
+                    <Article data={article} key={article.id} isHideRemoveButton={toggleRemoving ? toggleRemoving.visibilityRemovingMenu : false}
+                             id={article.id}/>
+                )}
+            </div>
+        </div>
+    )
 }
 
 ArticleList.propTypes = {
@@ -63,5 +53,16 @@ ArticleList.propTypes = {
     )
 };
 
+const mapStateToProps = (state) => {
+    return {
+        articles: state.articles,
+        toggleRemoving: !state.isShowRemovingButton
+    }
+};
 
-export default ArticleList;
+const mapDispatchToProps = {
+    toggleInputChange,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

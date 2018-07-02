@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import appReducer from '../actions/app'
+import articlesReducer from '../reducers/articles';
+import toggleRemoving from '../reducers/toggleRemoving'
 
 export default combineReducers({
-    articles: appReducer,
+    articles: articlesReducer,
+    toggleRemoving
 });
