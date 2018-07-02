@@ -1,5 +1,4 @@
-import initialState from '../store/initialState'
 
-export default function appReducer(state = initialState) {
+export default function appReducer(state = ["sdf"]) {
     return state;
 }
