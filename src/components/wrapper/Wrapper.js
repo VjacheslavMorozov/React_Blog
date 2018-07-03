@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TitleContainer from "../../containers/titleContainer/TitleContainer";
-import ArticleList from "../../containers/articleList/ArticleList";
+import ArticleContainer from "../../containers/articleContainer/ArticleContainer";
 import PropTypes from 'prop-types';
 
 const Wrapper = () => {
     return (
         <div>
             <TitleContainer/>
-            <ArticleList/>
+            <ArticleContainer/>
         </div>
     );
 };

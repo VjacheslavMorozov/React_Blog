@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from './article.scss';
 import shave from 'shave/dist/shave';
-import CommentsList from "../../containers/commentsList/СommentsList";
+import CommentsContainer from "../../containers/commentsContainer/СommentsContainer";
 import PropTypes from 'prop-types';
 import _ from "lodash";
 import Modal from 'react-modal';
@@ -16,6 +16,7 @@ class Article extends Component {
         this.closeModal = this.closeModal.bind(this);
         this.acceptingDelete = this.acceptingDelete.bind(this);
         this.cancelingDelete = this.cancelingDelete.bind(this);
+        console.log(this.props.deleteArticle)
     }
 
     state = {
@@ -77,12 +78,16 @@ class Article extends Component {
         window.removeEventListener('scroll', this.onScroll, false);
     }
 
+    deleteArticle = () => {
+        const {id, deleteArticle} = this.props;
+        deleteArticle(id);
+    };
+
     render() {
         const {title, date, text, comments, id} = this.props.data;
         const {isHideRemoveButton}= this.props;
         const {isOpen} = this.state;
         const currentTime = Date({date});
-        console.log(this.props.isHideRemoveButton)
 
         return (
             <div className={styles.articleContainer}>
@@ -97,7 +102,7 @@ class Article extends Component {
                     </div>
 
                 </Modal>
-                <div className={styles.titleContainer} ref={this.textContainer}>
+                <div className={styles.titleContainer}>
                     <div className="title-container">
                         <div>{title}</div>
                     </div>
@@ -106,9 +111,8 @@ class Article extends Component {
                                 onClick={this.toggleVisibleArticle}>
                             {isOpen ? "hide article" : "show article"}
                         </button>
-
                         <button
-                            className={isHideRemoveButton ? "" :  styles.hidden} onClick={this.openModal}>
+                            className={isHideRemoveButton ? "" :  styles.hidden} onClick={this.deleteArticle}>
                             remove
                         </button>
                     </div>
@@ -122,7 +126,7 @@ class Article extends Component {
                         publication date {currentTime}
                     </div>
                     <div>
-                        <CommentsList listOfComments={comments}/>
+                        <CommentsContainer articleId = {id} listOfComments={comments}/>
                     </div>
                 </div>
             </div>
@@ -144,6 +148,7 @@ Article.propTypes = {
     }),
 
 };
+
 
 export default Article;
 

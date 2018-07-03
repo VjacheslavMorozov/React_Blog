@@ -1,12 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import Article from "../../components/article/article";
-
-
-import {toggleInputChange} from '../../reducers/toggleRemoving';
-import {deleteArticle, deleteComment} from '../../reducers/articles';
-
+import Article from "../article/Article";
 
 function ArticleList(props) {
     const {articles = [], toggleRemoving} = props;
@@ -52,17 +46,4 @@ ArticleList.propTypes = {
     )
 };
 
-const mapStateToProps = (state) => {
-    return {
-        articles: state.articles,
-        toggleRemoving: !state.toggleRemoving.visibilityRemovingMenu
-    }
-};
-
-const mapDispatchToProps = (dispatch) => ({
-    toggleInputChange: ()=> dispatch(toggleInputChange()),
-    deleteArticle: (id) => dispatch(deleteArticle(id)),
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+export default ArticleList;

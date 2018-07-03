@@ -1,7 +1,5 @@
 import articles from "../dataList";
 
-const initialState = {
-    articles: articles
-};
+const initialState = articles;
 
 export default initialState;
