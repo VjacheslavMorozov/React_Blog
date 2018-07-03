@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import _ from "lodash";
 import Modal from 'react-modal';
 
-
 import RemovingArticleComponent from "../removingArticleComponent/RemovingArticleComponent";
 
 class Article extends Component {

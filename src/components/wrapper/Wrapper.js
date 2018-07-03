@@ -12,8 +12,6 @@ const Wrapper = () => {
     );
 };
 
-
-
 Wrapper.propTypes = {
     articleArray: PropTypes.shape({
         id: PropTypes.number,

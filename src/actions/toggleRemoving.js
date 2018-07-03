@@ -1,0 +1,3 @@
+const INPUT_CHANGED = 'INPUT_CHANGED';
+
+export default INPUT_CHANGED

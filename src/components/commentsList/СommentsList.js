@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Comment from "../../components/comment/Сomment";
+import Comment from "../comment/Сomment";
 import styles from "./commentList.scss";
 import PropTypes from 'prop-types';
 
@@ -18,7 +18,7 @@ class CommentsList extends Component {
 
     render() {
 
-        const {listOfComments} = this.props;
+        const {listOfComments, articleId} = this.props;
         const isCommentsOpen = this.state.isOpen;
         const isHasComments = listOfComments.length > 0;
 
@@ -35,10 +35,9 @@ class CommentsList extends Component {
                     </div>
                 }
 
-
                 {isHasComments && isCommentsOpen &&
                     listOfComments.map((comment) =>
-                        <Comment data={comment.commentText} key={comment.commentId}/>
+                        <Comment deletingComment={this.props.deleteComment} data={comment.commentText}  articleId={articleId} commentId={comment.commentId} key={comment.commentId}/>
                     )
                 }
             </div>
