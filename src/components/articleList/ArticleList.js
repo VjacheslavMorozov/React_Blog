@@ -11,13 +11,12 @@ function ArticleList(props) {
                        type="radio"
                        value="1"
                        name="check"
-                /> Enable
-                Removing mode
+                /> Disable Removing mode
                 <input onClick={props.toggleInputChange}
                        type="radio"
                        value="0"
                        name="check" defaultChecked={true}/>
-                Disable Removing mode
+                Enable Removing mode
             </div>
             <div>
                 {articles.map((article) =>

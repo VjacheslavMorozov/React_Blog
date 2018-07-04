@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleContainer from "../../containers/titleContainer/TitleContainer";
 import ArticleContainer from "../../containers/articleContainer/ArticleContainer";
+import FormContainer from "../../containers/FormContainer/FormContainer";
 import PropTypes from 'prop-types';
 
 const Wrapper = () => {
@@ -8,6 +9,7 @@ const Wrapper = () => {
         <div>
             <TitleContainer/>
             <ArticleContainer/>
+            <FormContainer/>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import CommentsList from '../../components/commentsList/СommentsList';
 import {deleteComment} from "../../reducers/articles";
 
 const mapDispatchToProps = (dispatch) => ({
-    // deleteComment: (articleId, commentId) => dispatch(deleteComment(articleId, commentId))
+     deleteComment: (articleId, commentId) => dispatch(deleteComment(articleId, commentId))
 });
 
 

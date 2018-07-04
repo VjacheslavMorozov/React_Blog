@@ -1,4 +1,4 @@
-import { REMOVE_ARTICLE, REMOVE_COMMENT } from '../actions/actions';
+import {ADD_ARTICLE, REMOVE_ARTICLE, REMOVE_COMMENT} from '../actions/actions';
 
 
 
@@ -19,10 +19,19 @@ export function deleteComment(articleId, commentId){
         commentId
     }
 }
-
+export function addArticle(newItem){
+    return {
+        type: ADD_ARTICLE,
+        newItem
+    }
+}
 
 const actionHandlers = {
     [REMOVE_ARTICLE]: (state, action) => state.filter(article => article.id !== action.id),
+    [ADD_ARTICLE]: (state, action) => ({
+        ...state,
+        arr: [...state.arr, action.newItem]
+    }),
     [REMOVE_COMMENT]: (state, action) => console.log(action) || state.map(article => ({
         ...article,
         comments: article.id === action.articleId
