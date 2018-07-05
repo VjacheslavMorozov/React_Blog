@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { uid } from 'uuid'
+import idGenerator from 'react-id-generator';
 
 class Form extends Component {
     constructor(props){
@@ -8,6 +8,8 @@ class Form extends Component {
             title: "",
             newPostText: ""
         };
+        this.myTitleRef = React.createRef();
+        this.myTextArticleRef = React.createRef();
     }
 
     onChangeInput = e => {
@@ -23,33 +25,36 @@ class Form extends Component {
         event.stopPropagation();
     }
 
-    addArticle = (e) => {
-        this.props.addArticle( {
-            id: 3,
-            title: "American Short Fiction",
-            date: 15225840,
-            text: "About Blog American Short Fiction selects and publishes short stories, short shorts, novellas, and novel excerpts by" +
-            " established and super new writers. It is our goal to discover and publish the best fiction we possibly can—stories that dive " +
-            "into the wreck, that stretch the reader between recognition and surprise, that conjure a particular world with delicate expertise—stories " +
-            "that take a different way home.",
-            comments: [
-                {
-                    commentText: "it's very interesting story",
-                    commentId: 3
-                },
-                {
-                    commentText: "I hate all stories",
-                    commentId: 4
-                }
-            ]
-        })
+    clearingStateAfterSave() {
+        this.setState({
+            title: "",
+            newPostText: ""
+        });
+
+        this.myTextArticleRef.current.value = "";
+        this.myTitleRef.current.value = "";
     }
+
+    addArticle = (e) => {
+        const newDate = new Date;
+        const {title, newPostText} = this.state;
+        if(title.length && newPostText.length) {
+            this.props.addArticle({
+                id: idGenerator(),
+                title: title,
+                date: newDate,
+                text: newPostText,
+                comments: []
+            });
+            this.clearingStateAfterSave();
+        }
+    };
     render() {
         return (
             <div>
                 <form onSubmit={this.submitForm}>
-                    <input placeholder="enter new title" name="title" type="text"  onChange={this.onChangeInput}/>
-                    <input placeholder="enter new article text" name="newPostText" type="text" onChange={this.onChangeInput}/>
+                    <input placeholder="enter new title" name="title" type="text" ref={this.myTitleRef } onChange={this.onChangeInput}/>
+                    <input placeholder="enter new article text" name="newPostText" type="text" ref={this.myTextArticleRef}  onChange={this.onChangeInput}/>
                     <button onClick={this.addArticle}>Save new article</button>
                 </form>
 
@@ -60,3 +65,12 @@ class Form extends Component {
 
 
 export default Form;
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
+    render() {
+        return <div ref={this.myRef} />;
+    }
+}
