@@ -28,10 +28,7 @@ export function addArticle(newItem){
 
 const actionHandlers = {
     [REMOVE_ARTICLE]: (state, action) => state.filter(article => article.id !== action.id),
-    [ADD_ARTICLE]: (state, action) => ({
-        ...state,
-        arr: [...state.arr, action.newItem]
-    }),
+    [ADD_ARTICLE]: (state, action) => [...(state || []), action.newItem],
     [REMOVE_COMMENT]: (state, action) => console.log(action) || state.map(article => ({
         ...article,
         comments: article.id === action.articleId

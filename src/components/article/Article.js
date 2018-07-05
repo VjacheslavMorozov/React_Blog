@@ -87,7 +87,7 @@ class Article extends Component {
         const {title, date, text, comments, id} = this.props.data;
         const {isHideRemoveButton}= this.props;
         const {isOpen} = this.state;
-        const currentTime = Date({date});
+        const currentTime = new Date(date).toISOString();
 
         return (
             <div className={styles.articleContainer}>
