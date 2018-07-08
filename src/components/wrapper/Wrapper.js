@@ -3,6 +3,7 @@ import TitleContainer from "../../containers/titleContainer/TitleContainer";
 import ArticleContainer from "../../containers/articleContainer/ArticleContainer";
 import FormContainer from "../../containers/FormContainer/FormContainer";
 import PropTypes from 'prop-types';
+import RegistrationModal from "../../containers/RegistrationModal/RegistrationModal";
 
 const Wrapper = () => {
     return (
@@ -10,7 +11,9 @@ const Wrapper = () => {
             <TitleContainer/>
             <ArticleContainer/>
             <FormContainer/>
+            <RegistrationModal />
         </div>
+
     );
 };
 
