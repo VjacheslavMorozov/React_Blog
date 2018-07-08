@@ -16,7 +16,6 @@ class Article extends Component {
         this.closeModal = this.closeModal.bind(this);
         this.acceptingDelete = this.acceptingDelete.bind(this);
         this.cancelingDelete = this.cancelingDelete.bind(this);
-        console.log(this.props.deleteArticle)
     }
 
     state = {
@@ -42,12 +41,10 @@ class Article extends Component {
     }
 
     acceptingDelete() {
-        console.log("accept");
         this.closeModal();
     }
 
     cancelingDelete() {
-        console.log("cancel");
         this.closeModal();
     }
 

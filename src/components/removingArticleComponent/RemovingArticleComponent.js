@@ -11,7 +11,7 @@ class RemovingArticleComponent extends Component {
         const {id} = this.props;
         return (
             <ArticleContext.Consumer>
-                {context => console.log(context) || (
+                {context => (
                     <button  onClick={context.updateArticleList.bind(null, id)}>remove</button>
                 )}
             </ArticleContext.Consumer>
