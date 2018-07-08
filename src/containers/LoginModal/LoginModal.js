@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
-import { SignUp } from "../../reducers/user";
-import { SIGN_UP } from "../../actions/user";
+import { SignIn } from "../../reducers/user";
+import { SIGN_IN } from "../../actions/user";
 
-class RegistrationModal extends Component {
+class LoginModal extends Component {
     handleSubmit = (event) => {
-        return this.props.SignUp(JSON.stringify(event));
+        return this.props.SignIn(JSON.stringify(event));
     };
 
     render() {
-
         const { isFetching, handleSubmit } = this.props;
 
         return (
@@ -23,24 +22,13 @@ class RegistrationModal extends Component {
 
                 <Field
                     type="text"
-                    name="name"
-                    placeholder="name"
-                    component="input" />
-
-                <Field
-                    type="text"
                     name="password"
                     placeholder="password"
                     component="input" />
 
-                <Field
-                    type="text"
-                    name="password_confirm"
-                    placeholder="confirm your password"
-                    component="input" />
 
                 <button type="submit" disabled={isFetching}>
-                    Sign up
+                    Sign in
                 </button>
             </form>
         );
@@ -48,9 +36,9 @@ class RegistrationModal extends Component {
 }
 
 export default connect(null, {
-    SignUp
+    SignIn
 })(
     reduxForm({
-        form: SIGN_UP
-    })(RegistrationModal)
+        form: SIGN_IN
+    })(LoginModal)
 );
